@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {   
     private const float xLimit = 5.5f;
-    private const float zLimit = 0.0f;
+    private const float zMaxLimit = 0.0f;
+    private const float zMinLimit = -19.0f;
     private const float moveSpeed = 2f;
     
     private void Start()
@@ -98,9 +99,14 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-xLimit, transform.position.y, transform.position.z);
         }
 
-        if(transform.position.z >= zLimit){
+        if(transform.position.z >= zMaxLimit){
             Debug.Log("You went out of bounds");
-            transform.position = new Vector3(transform.position.x, transform.position.y, zLimit);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zMaxLimit);
+        }
+
+        if(transform.position.z <= zMinLimit){
+            Debug.Log("You went out of bounds");
+            transform.position = new Vector3(transform.position.x, transform.position.y, zMinLimit);
         }
     }
 }
