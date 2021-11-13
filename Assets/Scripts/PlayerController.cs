@@ -89,22 +89,22 @@ public class PlayerController : MonoBehaviour
     
     private void KeepWithinBounds()
     {
-        if(transform.position.x >= xLimit){
+        if(transform.position.x > xLimit){
             Debug.Log("You went out of bounds");
             transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
         }
 
-        if(transform.position.x <= -xLimit){
+        if(transform.position.x < -xLimit){
             Debug.Log("You went out of bounds");
             transform.position = new Vector3(-xLimit, transform.position.y, transform.position.z);
         }
 
-        if(transform.position.z >= zMaxLimit){
+        if(transform.position.z > zMaxLimit){
             Debug.Log("You went out of bounds");
             transform.position = new Vector3(transform.position.x, transform.position.y, zMaxLimit);
         }
 
-        if(transform.position.z <= zMinLimit){
+        if(transform.position.z < zMinLimit){
             Debug.Log("You went out of bounds");
             transform.position = new Vector3(transform.position.x, transform.position.y, zMinLimit);
         }

@@ -239,17 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfc0c6f8eee8124893376804560354b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipModels:
-  - shipPrefab: {fileID: 0}
-    name: 
-    speed: 0
-    health: 0
-    shipColor: {r: 0, g: 0, b: 0, a: 0}
-  - shipPrefab: {fileID: 0}
-    name: 
-    speed: 0
-    health: 0
-    shipColor: {r: 0, g: 0, b: 0, a: 0}
+  shipModels: []
 --- !u!1 &467037400
 GameObject:
   m_ObjectHideFlags: 0
