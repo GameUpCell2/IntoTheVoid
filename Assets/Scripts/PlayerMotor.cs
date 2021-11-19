@@ -6,6 +6,9 @@ public class PlayerMotor : MonoBehaviour
 {   
     public float moveSpeed = 20f;
     public float sensitivity = 1f;
+    private const float xLimit = 10f;
+    private const float maxZLimit = 15f;
+    private const float minZLimit = -15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,40 @@ public class PlayerMotor : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, InputSystem.Instance.TargetPos, moveSpeed * sensitivity);
         }
-        
+
+        KeepWithinBounds();    
+    }
+
+    private void KeepWithinBounds()
+    {   
+        Vector3 targetPos;
+
+        if(transform.position.x > xLimit)
+        {
+            targetPos = transform.position;
+            targetPos.x = xLimit;
+            transform.position = targetPos;
+        }
+
+        if(transform.position.x < -xLimit)
+        {
+            targetPos = transform.position;
+            targetPos.x = -xLimit;
+            transform.position = targetPos;
+        }
+
+        if(transform.position.z > maxZLimit)
+        {
+            targetPos = transform.position;
+            targetPos.z = maxZLimit;
+            transform.position = targetPos;
+        }
+
+        if(transform.position.z < minZLimit)
+        {
+            targetPos = transform.position;
+            targetPos.z = minZLimit;
+            transform.position = targetPos;
+        }
     }
 }
