@@ -685,9 +685,10 @@ GameObject:
   - component: {fileID: 1919704801}
   - component: {fileID: 1919704802}
   - component: {fileID: 1919704803}
+  - component: {fileID: 1919704804}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,3 +734,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150694eaa8b962743a896a50e7c81fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1919704804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919704800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1759a21515aa69841b9e0e14b492b1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allMissiles:
+  - {fileID: 1041095693224964190, guid: 1a4b831ddf539644ea241f4a43b4047e, type: 3}
+  - {fileID: 8166067189462008657, guid: 7d73369673a686c43893ef3c7e7181d3, type: 3}
+  - {fileID: 5673971161009680213, guid: 0f3225b3094d93046a8c7ae28cbfb67c, type: 3}
+  - {fileID: 5430859522135171293, guid: 19df16dfc4913c845a961b10d61a8e63, type: 3}
+  - {fileID: 812395335480503086, guid: 8b2d5a46483133646bb5d9514d8695d2, type: 3}
+  - {fileID: 7822109044311525158, guid: f66c811ad641187408d14abe570ec0fe, type: 3}
+  - {fileID: 3664580247228531576, guid: 9664fecebf22a954d95b1ba6deffbf9c, type: 3}
+  shipWidth: 10
+  gunNumber: 1
