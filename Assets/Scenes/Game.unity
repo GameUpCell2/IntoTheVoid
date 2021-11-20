@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1919704802}
   - component: {fileID: 1919704803}
   - component: {fileID: 1919704804}
+  - component: {fileID: 1919704805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -771,3 +772,16 @@ MonoBehaviour:
   - {fileID: 3664580247228531576, guid: 9664fecebf22a954d95b1ba6deffbf9c, type: 3}
   shipWidth: 10
   gunNumber: 1
+--- !u!65 &1919704805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919704800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
