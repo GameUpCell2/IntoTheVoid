@@ -15,7 +15,7 @@ public class ObstacleMotor : MonoBehaviour
     void Update()
     {
         // Move obstacle foward
-        Vector3 to = new Vector3(degrees * Time.time, 0, 0);
+        Vector3 to = new Vector3(degrees, 0, 0);
         transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
         transform.position += Vector3.back * obstacleSpeed * Time.deltaTime;
 
@@ -32,7 +32,9 @@ public class ObstacleMotor : MonoBehaviour
         {   
             Debug.Log("You destroyed a meteor!");
             // Instantiate(obstacleExplosion, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
             Destroy(gameObject);
+
         }
 
     }
