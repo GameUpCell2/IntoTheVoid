@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Unity Editor",
+            "type": "unity",
+            "path": "C:/GIT REPOS/IntoTheVoid/Library/EditorInstance.json",
+            "request": "launch"
+        }
+    ]
+}
