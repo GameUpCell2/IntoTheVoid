@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This script defines which sprite the 'Player" uses and its health.
@@ -19,17 +21,27 @@ public class Player : MonoBehaviour
             instance = this;
     }
 
+    
     //method for damage proceccing by 'Player'
     public void GetDamage(int damage)   
     {
         Destruction();
+        
     }    
 
     //'Player's' destruction procedure
     void Destruction()
     {
+        
         Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
         Destroy(gameObject);
+        RestartGame();
+        
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 
