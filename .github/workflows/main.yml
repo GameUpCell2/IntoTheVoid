@@ -40,7 +40,7 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: game-ci/unity-request-activation-file@de1240e14622163607d94eecb76d8fbc250d4504
         id: getManualLicenseFile
-        uses: game-ci/unity-request-activation-file@v2.0
+        uses: game-ci/unity-request-activation-file@v2.0-alpha-1
         with:
           # Version of unity to use for building the project.
           unityVersion: # optional, default is 2019.2.11f1
