@@ -50,5 +50,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.getManualLicenseFile.outputs.filePath }}
-          path: ${{ steps.getManualLicenseFile.outputs.filePath }}     
+          path: Assets/${{ steps.getManualLicenseFile.outputs.filePath }}     
   
