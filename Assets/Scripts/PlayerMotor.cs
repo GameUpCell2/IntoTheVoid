@@ -19,12 +19,11 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
 
-        if(InputSystem.Instance.FingerDown)
-        {
+        if(!GameManager.Instance.IsPaused  && InputSystem.Instance.FingerDown)
+        {   
             transform.position = Vector3.MoveTowards(transform.position, InputSystem.Instance.TargetPos, moveSpeed * sensitivity);
         }
         PlayerArsenal.Instance.LaunchMissile(transform.position);
-        
         KeepWithinBounds();    
     }
 

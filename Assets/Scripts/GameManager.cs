@@ -13,13 +13,16 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
 
     public bool isDead = false;
+    public bool IsMute = false;    
+    public bool IsPaused = false;    
     
-
     public Text scoreText;
-    public Text highScoreText;
+    public Text highScoreText, newHighScore;
     public Text gameOverScoreText;
     public int gameScore = 0;
     private int highscore;
+
+    public GameObject HUDPanel;
 
     private void Awake()
     {
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isDead = true;
-        scoreText.gameObject.SetActive(false);
+        HUDPanel.SetActive(false);
         gameOverScoreText.text = gameScore.ToString();
         ObstacleSpawn.Instance.isSpawning = false;
         gameOverPanel.SetActive(true);
@@ -71,6 +74,12 @@ public class GameManager : MonoBehaviour
         if(highscore > PlayerPrefs.GetInt("Highscore",0))
         {
             PlayerPrefs.SetInt("Highscore", highscore);
+            newHighScore.gameObject.SetActive(true);
+            MyAudioManager.Instance.Play("win");
+        }
+        else
+        {
+            MyAudioManager.Instance.Play("lose");
         }
         
     }

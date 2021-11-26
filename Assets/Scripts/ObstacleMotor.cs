@@ -44,6 +44,7 @@ public class ObstacleMotor : MonoBehaviour
             Instantiate(randomObs, transform.position, Quaternion.identity);
             
             GameManager.Instance.UpdateScore(destructScore); 
+            MyAudioManager.Instance.Play("explosion");
             Destroy(other.gameObject);
             Destroy(gameObject);
 
