@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {   
-    public float moveSpeed = 20f;
+    private float moveSpeed = 1f;
     public float sensitivity = 1f;
-    private const float xLimit = 10f;
-    private const float maxZLimit = 15f;
-    private const float minZLimit = -15f;
+    private const float xLimit = 15f;
+    private const float maxZLimit = 25f;
+    private const float minZLimit = -25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,8 @@ public class PlayerMotor : MonoBehaviour
         if(InputSystem.Instance.FingerDown)
         {
             transform.position = Vector3.MoveTowards(transform.position, InputSystem.Instance.TargetPos, moveSpeed * sensitivity);
-            PlayerArsenal.Instance.LaunchMissile(transform.position);
         }
+        PlayerArsenal.Instance.LaunchMissile(transform.position);
         
         KeepWithinBounds();    
     }
@@ -59,5 +59,22 @@ public class PlayerMotor : MonoBehaviour
             targetPos.z = minZLimit;
             transform.position = targetPos;
         }
+    }
+
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Player");
+
+        if(other.gameObject.tag == "Enemy")
+        {   
+            Debug.Log("GameOver!");
+            GameManager.Instance.GameOver();
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            
+
+        }
+
     }
 }

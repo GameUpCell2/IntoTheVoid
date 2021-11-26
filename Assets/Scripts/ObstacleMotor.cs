@@ -6,19 +6,25 @@ public class ObstacleMotor : MonoBehaviour
 {
     public float obstacleSpeed = 2f;
     private float degrees = 35f;
-    public GameObject obstacleExplosion; 
+    public GameObject[] explosions; 
+    public int destructScore = 5;
 
-    private const float xLimit = 10f;
-    private const float maxZLimit = 15f;
-    private const float minZLimit = -20f;
+    private const float xLimit = 17f;
+    private const float maxZLimit = 29f;
+    private const float minZLimit = -26f;
 
     void Update()
     {
         // Move obstacle foward
-        Vector3 to = new Vector3(degrees, 0, 0);
-        transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
-        transform.position += Vector3.back * obstacleSpeed * Time.deltaTime;
-
+        if(GameManager.Instance.GameLevel > 0)
+        {
+            transform.position += Vector3.back * obstacleSpeed * Time.deltaTime * (GameManager.Instance.GameLevel);
+        }
+        else
+        {
+            transform.position += Vector3.back * obstacleSpeed * Time.deltaTime;
+        }
+        
         DestroyOutOfBounds();
 
     }
@@ -31,7 +37,13 @@ public class ObstacleMotor : MonoBehaviour
         if(other.gameObject.tag == "Missile")
         {   
             Debug.Log("You destroyed a meteor!");
-            // Instantiate(obstacleExplosion, transform.position, Quaternion.identity);
+            
+            int randIndx = Random.Range (0, explosions.Length-1);
+            GameObject randomObs = explosions[randIndx];
+            
+            Instantiate(randomObs, transform.position, Quaternion.identity);
+            
+            GameManager.Instance.UpdateScore(destructScore); 
             Destroy(other.gameObject);
             Destroy(gameObject);
 
@@ -51,11 +63,6 @@ public class ObstacleMotor : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // if(transform.position.z > maxZLimit)
-        // {
-        //     Destroy(gameObject);
-        // }
 
         if(transform.position.z < minZLimit)
         {
