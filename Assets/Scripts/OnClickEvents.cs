@@ -47,10 +47,12 @@ public class OnClickEvents : MonoBehaviour
         if(GameManager.Instance.IsMute)
         {
             GameManager.Instance.IsMute = false;
+            PlayerPrefs.SetInt("IsMute",0);
         }
         else
         {
             GameManager.Instance.IsMute = true;
+            PlayerPrefs.SetInt("IsMute",1);
         }
     }
 }
