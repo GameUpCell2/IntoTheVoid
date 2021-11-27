@@ -36,21 +36,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Into the Void\Scripts\DirectMoving.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\RepeatingBackground.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\PlayerShooting.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\FollowThePath.cs" />
+     <Compile Include="Assets\GameManagerX.cs" />
      <Compile Include="Assets\Into the Void\Scripts\VisualEffect.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\Bonus.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\PoolingController.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\DirectMoving.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\Player.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\Projectile.cs" />
      <Compile Include="Assets\Into the Void\Scripts\Wave.cs" />
      <Compile Include="Assets\Into the Void\Scripts\LevelController.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\Player.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\FollowThePath.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\Enemy.cs" />
      <Compile Include="Assets\Into the Void\Scripts\PlayerMoving.cs" />
      <Compile Include="Assets\Into the Void\Scripts\Boundary.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\Bonus.cs" />
-     <Compile Include="Assets\GameManagerX.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\PoolingController.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\PlayerShooting.cs" />
-     <Compile Include="Assets\Into the Void\Scripts\RepeatingBackground.cs" />
+     <Compile Include="Assets\Into the Void\Scripts\Enemy.cs" />
      <None Include="Assets\Ludiq\Ludiq.Core\DotNetDocumentation\System.Web.Extensions.Design.xml" />
      <None Include="Assets\Ludiq\Ludiq.Core\DotNetDocumentation\Microsoft.Build.Engine.xml" />
      <None Include="Assets\Ludiq\Assemblies\Bolt.State.Runtime.xml" />
@@ -356,14 +356,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>C:\Program Files\Unity\Editor\Unity 2020.3.22f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Bolt.State.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="YamlDotNet">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\YamlDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Bolt.State.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Antlr3.Runtime.dll</HintPath>
@@ -377,11 +374,14 @@
     <Reference Include="Bolt.Flow.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Flow.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Ludiq.Graphs.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Graphs.Editor.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Bolt.Core.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Ludiq.Graphs.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Graphs.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Bolt.Core.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Core.Runtime.dll</HintPath>
@@ -395,11 +395,11 @@
     <Reference Include="Bolt.Flow.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Flow.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Ludiq.Core.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Core.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="MiscUtil">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\MiscUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Ludiq.Core.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Bolt.State.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Runtime.dll</HintPath>
@@ -749,8 +749,23 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Editor\Unity 2020.3.22f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -758,17 +773,26 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    <Reference Include="Unity.2D.IK.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Path.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -785,59 +809,35 @@
     <Reference Include="Unity.Mathematics">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.IK.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Path.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    <Reference Include="Unity.2D.Animation.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
