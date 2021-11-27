@@ -27,6 +27,7 @@ public class PlayerArsenal : MonoBehaviour
     {   
         if(allowFire)
         {   
+            MyAudioManager.Instance.Play("gun");
             Vector3 spawnPosition = playerPosition;
             spawnPosition.z += 5f;
             allowFire = false;
