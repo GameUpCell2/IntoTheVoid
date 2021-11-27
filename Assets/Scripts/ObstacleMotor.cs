@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstacleMotor : MonoBehaviour
 {
     public float obstacleSpeed = 2f;
-    private float degrees = 35f;
     public GameObject[] explosions; 
     public int destructScore = 5;
 
