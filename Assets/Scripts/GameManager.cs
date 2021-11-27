@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         
         if(gameScore % LEVEL_UP_MARGIN == 0 && gameScore > 0)
         {
+            MyAudioManager.Instance.Play("levelUp");
             gameLevel += 1;
             LEVEL_UP_MARGIN *= 2;
         }
