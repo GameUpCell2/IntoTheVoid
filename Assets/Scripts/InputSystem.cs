@@ -28,7 +28,8 @@ public class InputSystem : MonoBehaviour
     private void Update()
     {   
         targetPos = Vector3.zero;
-        
+        OverGameObject = false;
+
         #region Standalone Input
         if(fingerDown && Input.GetMouseButtonUp(0))
             {
@@ -40,7 +41,9 @@ public class InputSystem : MonoBehaviour
                 fingerDown = true;
             }
         if (fingerDown)
-        {
+        {   
+            if(EventSystem.current.IsPointerOverGameObject())
+                OverGameObject = true;
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos.y = 0;
         }
@@ -51,6 +54,8 @@ public class InputSystem : MonoBehaviour
         {
             if(fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
+                if(EventSystem.current.IsPointerOverGameObject())
+                    OverGameObject = true;
                 fingerDown = true;
             }
             

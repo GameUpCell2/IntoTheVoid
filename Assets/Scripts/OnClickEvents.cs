@@ -27,4 +27,32 @@ public class OnClickEvents : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PauseResumeGame()
+    {
+        if(GameManager.Instance.IsPaused)
+        {
+            GameManager.Instance.IsPaused = false;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            GameManager.Instance.IsPaused = true;
+            Time.timeScale = 0;
+        }
+    }
+
+    public void ToggleMute()
+    {
+        if(GameManager.Instance.IsMute)
+        {
+            GameManager.Instance.IsMute = false;
+            PlayerPrefs.SetInt("IsMute",0);
+        }
+        else
+        {
+            GameManager.Instance.IsMute = true;
+            PlayerPrefs.SetInt("IsMute",1);
+        }
+    }
 }

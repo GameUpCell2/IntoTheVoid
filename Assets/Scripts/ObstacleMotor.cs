@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstacleMotor : MonoBehaviour
 {
     public float obstacleSpeed = 2f;
-    private float degrees = 35f;
     public GameObject[] explosions; 
     public int destructScore = 5;
 
@@ -44,6 +43,7 @@ public class ObstacleMotor : MonoBehaviour
             Instantiate(randomObs, transform.position, Quaternion.identity);
             
             GameManager.Instance.UpdateScore(destructScore); 
+            MyAudioManager.Instance.Play("explosion");
             Destroy(other.gameObject);
             Destroy(gameObject);
 

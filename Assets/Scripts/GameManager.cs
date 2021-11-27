@@ -13,13 +13,16 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
 
     public bool isDead = false;
+    public bool IsMute = false;    
+    public bool IsPaused = false;    
     
-
     public Text scoreText;
-    public Text highScoreText;
+    public Text highScoreText, newHighScore;
     public Text gameOverScoreText;
     public int gameScore = 0;
     private int highscore;
+
+    public GameObject HUDPanel;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        IsMute = PlayerPrefs.GetInt("IsMute",0)==1;
         highscore = PlayerPrefs.GetInt("Highscore", 0);
         UpdateScore(0);
     }
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
         
         if(gameScore % LEVEL_UP_MARGIN == 0 && gameScore > 0)
         {
+            MyAudioManager.Instance.Play("levelUp");
             gameLevel += 1;
             LEVEL_UP_MARGIN *= 2;
         }
@@ -63,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isDead = true;
-        scoreText.gameObject.SetActive(false);
+        HUDPanel.SetActive(false);
         gameOverScoreText.text = gameScore.ToString();
         ObstacleSpawn.Instance.isSpawning = false;
         gameOverPanel.SetActive(true);
@@ -71,6 +76,12 @@ public class GameManager : MonoBehaviour
         if(highscore > PlayerPrefs.GetInt("Highscore",0))
         {
             PlayerPrefs.SetInt("Highscore", highscore);
+            newHighScore.gameObject.SetActive(true);
+            MyAudioManager.Instance.Play("win");
+        }
+        else
+        {
+            MyAudioManager.Instance.Play("lose");
         }
         
     }
