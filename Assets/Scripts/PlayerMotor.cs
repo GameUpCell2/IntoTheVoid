@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {   
     private float moveSpeed = 1f;
-    public float sensitivity = 1f;
+    public float sensitivity;
     private const float xLimit = 15f;
     private const float maxZLimit = 25f;
     private const float minZLimit = -25f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sensitivity = PlayerPrefs.GetFloat("Sensitivity", 1f);
     }
 
     // Update is called once per frame

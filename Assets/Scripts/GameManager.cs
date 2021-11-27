@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        IsMute = PlayerPrefs.GetInt("IsMute",0)==1;
         highscore = PlayerPrefs.GetInt("Highscore", 0);
         UpdateScore(0);
     }
