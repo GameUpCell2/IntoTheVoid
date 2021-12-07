@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { set; get;}
     private int gameLevel = 0;
     public int GameLevel {get{ return gameLevel;}}
-    private int LEVEL_UP_MARGIN = 100;
+    private int LEVEL_UP_MARGIN = 50;
 
     public GameObject gameOverPanel;
 
@@ -24,15 +24,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject HUDPanel;
 
+    // BackGround Images
+    public Image[] bgImages;
+    public Image bgPanel;
+    public Animator bgAnim;
+
+    // Post Game Play
+    public bool useReviveAd = true; // Initially hold true
+    
+
     private void Awake()
     {
-        if (Instance != null)
-		{
-			Destroy(gameObject);
-		} else
-		{
-			Instance = this;
-		}  
+        Instance = this;
     }
 
 
@@ -86,4 +89,22 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void SwitchBackground()
+    {
+        bgAnim.SetTrigger("BgChange");
+
+    }
+
+    public void UseReviveAd(bool play)
+    {
+        if(play)
+        {
+            // Play Unity Ads and Continue GamePlay
+        }
+
+        else
+        {
+            // Show Proper GameOver Menu
+        }
+    }
 }
