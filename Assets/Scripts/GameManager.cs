@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject HUDPanel;
 
+    public Sprite playSprite;
+    public Sprite pauseSprite;
+
     private void Awake()
     {
         if (Instance != null)
