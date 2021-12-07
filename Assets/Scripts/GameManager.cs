@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { set; get;}
     private int gameLevel = 0;
     public int GameLevel {get{ return gameLevel;}}
-    private int LEVEL_UP_MARGIN = 100;
+    private int LEVEL_UP_MARGIN = 50;
 
     public GameObject gameOverPanel;
 
@@ -26,13 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-		{
-			Destroy(gameObject);
-		} else
-		{
-			Instance = this;
-		}  
+        Instance = this;
     }
 
 

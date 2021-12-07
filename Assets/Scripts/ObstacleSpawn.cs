@@ -7,9 +7,9 @@ using PathCreation.Examples;
 public class ObstacleSpawn : MonoBehaviour
 {
     public static ObstacleSpawn Instance {set; get;}
-    public float spawnRate = 2.0f;
+    public float spawnRate = 0.5f;
     public bool isSpawning = true;
-    private const float xLimit = 10f;
+    private const float xLimit = 9f;
     private const float laneWidth = 4f;
     public GameObject[] astroids;
 
@@ -35,7 +35,7 @@ public class ObstacleSpawn : MonoBehaviour
             SpawnNewObstacle();
             if(GameManager.Instance.GameLevel > 0)
             {
-                yield return new WaitForSeconds(spawnRate / (GameManager.Instance.GameLevel * 2));
+                yield return new WaitForSeconds(spawnRate / (GameManager.Instance.GameLevel * 3));
             }
             else
             {
@@ -49,10 +49,12 @@ public class ObstacleSpawn : MonoBehaviour
 
     private void SpawnNewObstacle()
     {
+        int randMult = Random.Range (1, GameManager.Instance.GameLevel);
         int randIndx = Random.Range (0, astroids.Length-1);
         GameObject randomObs = astroids[randIndx];
         int randomRange = Random.Range(0,4);
         float spawnLawn;
+        
         if(Random.value <= 0.5f)
         {
             spawnLawn = -laneWidth;
@@ -63,7 +65,10 @@ public class ObstacleSpawn : MonoBehaviour
         }
         float lane = (float)randomRange * spawnLawn;
         Vector3 spawnLocation = new Vector3(lane, 0, transform.position.z);
-        Instantiate(randomObs, spawnLocation, Quaternion.identity);
+        GameObject go = Instantiate(randomObs, spawnLocation, Quaternion.identity);
+        go.transform.localScale *= randMult;
+        go.GetComponent<ObstacleMotor>().health = randMult;
+
     }
 
     // private void SpawnNewObstacle()
