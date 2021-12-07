@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject HUDPanel;
 
+    // BackGround Images
+    public Image[] bgImages;
+    public Image bgPanel;
+    public Animator bgAnim;
+
+    // Post Game Play
+    public bool useReviveAd = true; // Initially hold true
+    
+
     private void Awake()
     {
         Instance = this;
@@ -80,4 +89,22 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void SwitchBackground()
+    {
+        bgAnim.SetTrigger("BgChange");
+
+    }
+
+    public void UseReviveAd(bool play)
+    {
+        if(play)
+        {
+            // Play Unity Ads and Continue GamePlay
+        }
+
+        else
+        {
+            // Show Proper GameOver Menu
+        }
+    }
 }
