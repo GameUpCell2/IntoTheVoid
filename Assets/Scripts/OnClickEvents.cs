@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class OnClickEvents : MonoBehaviour
 {
+    public Text nameField; 
 
     public void RestartGamePlay()
     {
@@ -20,7 +21,7 @@ public class OnClickEvents : MonoBehaviour
 
     public void LoadSettings()
     {
-        SceneManager.LoadScene("Workshop");
+        SceneManager.LoadScene("LeaderBoard");
     }
 
     public void QuitGame()
@@ -54,5 +55,11 @@ public class OnClickEvents : MonoBehaviour
             GameManager.Instance.IsMute = true;
             PlayerPrefs.SetInt("IsMute",1);
         }
+    }
+
+    public void SubmitScore()
+    {
+
+        HighScores.UploadScore(nameField.text, PlayerPrefs.GetInt("Highscore",0));
     }
 }
