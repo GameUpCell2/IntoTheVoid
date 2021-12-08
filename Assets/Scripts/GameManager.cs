@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int gameLevel = 0;
     public int GameLevel {get{ return gameLevel;}}
     private int LEVEL_UP_MARGIN = 50;
-
+    private int NEXT_LEVEL_UP_MARGIN;
     public GameObject gameOverPanel, useReviveAdPanel;
 
     public bool isDead = false;
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Sprite[] bgImages;
     public Image bgPanel;
     public Animator bgAnim;
+    private int curBg = 0;
 
     // Post Game Play
     public bool useReviveAd = true; // Initially hold true
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         IsMute = PlayerPrefs.GetInt("IsMute",0)==1;
         highscore = PlayerPrefs.GetInt("Highscore", 0);
         UpdateScore(0);
+        NEXT_LEVEL_UP_MARGIN = LEVEL_UP_MARGIN;
     }
 
     public void UpdateScore(int score)
@@ -67,13 +69,14 @@ public class GameManager : MonoBehaviour
             scoreText.text = gameScore.ToString();
         }
         
-        if(gameScore % LEVEL_UP_MARGIN == 0 && gameScore > 0)
+        if(gameScore >= NEXT_LEVEL_UP_MARGIN && gameScore > 0) 
         {   
             progressSlider.value = 0;
-            MyAudioManager.Instance.Play("levelUp");
             SwitchBackground();
             gameLevel += 1;
-            LEVEL_UP_MARGIN *= 2;
+            MyAudioManager.Instance.Play("levelUp");
+            
+            NEXT_LEVEL_UP_MARGIN += LEVEL_UP_MARGIN;
         }
         if(gameScore > highscore)
         {
@@ -108,8 +111,15 @@ public class GameManager : MonoBehaviour
     {
         // Get Random BgImage
         int randIndx = Random.Range (0, bgImages.Length-1);
+        if(curBg == randIndx)
+        {
+            randIndx = Random.Range (0, bgImages.Length-1);
+        }
+        curBg = randIndx;
+        Debug.Log("Swtiching bg");
         bgAnim.SetTrigger("BgChange");
-        bgPanel.sprite = bgImages[randIndx];
+
+        bgPanel.sprite = bgImages[curBg];
 
     }
 

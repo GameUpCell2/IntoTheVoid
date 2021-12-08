@@ -51,7 +51,7 @@ public class ObstacleSpawn : MonoBehaviour
     private void SpawnNewObstacle()
     {
         int randMult = Random.Range (1, GameManager.Instance.GameLevel);
-        int randIndx = Random.Range (0, astroids.Length-1);
+        int randIndx = Random.Range (0, astroids.Length);
         GameObject randomObs = astroids[randIndx];
         int randomRange = Random.Range(0,4);
         float spawnLawn;
