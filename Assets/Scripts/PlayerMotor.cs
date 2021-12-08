@@ -68,10 +68,15 @@ public class PlayerMotor : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {   
-            Debug.Log("GameOver!");
-            GameManager.Instance.GameOver();
+            
+            GameManager.Instance.HitObstacle();
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            if(GameManager.Instance.NoLives <= 0)
+            {
+                Debug.Log("GameOver!");
+                Destroy(gameObject);
+            } 
+            
             
 
         }

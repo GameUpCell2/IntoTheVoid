@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int GameLevel {get{ return gameLevel;}}
     private int LEVEL_UP_MARGIN = 50;
 
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel, useReviveAdPanel;
 
     public bool isDead = false;
     public bool IsMute = false;    
@@ -22,16 +22,28 @@ public class GameManager : MonoBehaviour
     public int gameScore = 0;
     private int highscore;
 
+    // HUD
     public GameObject HUDPanel;
+    public Slider progressSlider;
 
     // BackGround Images
-    public Image[] bgImages;
+    public Sprite[] bgImages;
     public Image bgPanel;
     public Animator bgAnim;
 
     // Post Game Play
     public bool useReviveAd = true; // Initially hold true
     
+    // PowerUps and Specials
+    public bool ClearAllObstacles;
+    public bool ShieldPlayer;
+    public bool MultGun;
+    public float powerupLength = 5f;
+
+    // Player Lives
+    private int noLives = 4;
+    public int NoLives{get{return noLives;}}
+    public GameObject[] noLivesIndicators;
 
     private void Awake()
     {
@@ -49,14 +61,17 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         gameScore += score;
+        progressSlider.value = gameScore % LEVEL_UP_MARGIN;
         if(scoreText != null)
         {
             scoreText.text = gameScore.ToString();
         }
         
         if(gameScore % LEVEL_UP_MARGIN == 0 && gameScore > 0)
-        {
+        {   
+            progressSlider.value = 0;
             MyAudioManager.Instance.Play("levelUp");
+            SwitchBackground();
             gameLevel += 1;
             LEVEL_UP_MARGIN *= 2;
         }
@@ -91,7 +106,10 @@ public class GameManager : MonoBehaviour
 
     public void SwitchBackground()
     {
+        // Get Random BgImage
+        int randIndx = Random.Range (0, bgImages.Length-1);
         bgAnim.SetTrigger("BgChange");
+        bgPanel.sprite = bgImages[randIndx];
 
     }
 
@@ -100,11 +118,43 @@ public class GameManager : MonoBehaviour
         if(play)
         {
             // Play Unity Ads and Continue GamePlay
+            StartCoroutine(EnablePowerUp(ClearAllObstacles));
+            StartCoroutine(EnablePowerUp(ShieldPlayer));
         }
 
         else
         {
             // Show Proper GameOver Menu
+            useReviveAdPanel.SetActive(false);
+            GameOver();
         }
+    }
+
+    public void OnDeath()
+    {
+        useReviveAdPanel.SetActive(true);
+
+    }
+
+    public void HitObstacle()
+    {
+        noLivesIndicators[noLives-1].SetActive(false);
+        noLives -= 1;
+        if(noLives <= 0)
+        {
+            OnDeath();
+        }
+    }
+
+    public void EnableClearAllObstacles()
+    {
+
+    }
+
+    IEnumerator EnablePowerUp(bool powerup)
+    {
+        powerup = true;
+        yield return new WaitForSeconds(powerupLength);
+        powerup = false;
     }
 }
