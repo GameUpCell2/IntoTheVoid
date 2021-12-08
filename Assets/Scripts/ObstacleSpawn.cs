@@ -13,6 +13,7 @@ public class ObstacleSpawn : MonoBehaviour
     private const float laneWidth = 4f;
     public GameObject[] astroids;
 
+    private Vector3 lastSpawnPos;
     // PathCreator pathToUse;
     private void Awake()
     {
@@ -50,7 +51,7 @@ public class ObstacleSpawn : MonoBehaviour
     private void SpawnNewObstacle()
     {
         int randMult = Random.Range (1, GameManager.Instance.GameLevel);
-        int randIndx = Random.Range (0, astroids.Length-1);
+        int randIndx = Random.Range (0, astroids.Length);
         GameObject randomObs = astroids[randIndx];
         int randomRange = Random.Range(0,4);
         float spawnLawn;
@@ -65,10 +66,13 @@ public class ObstacleSpawn : MonoBehaviour
         }
         float lane = (float)randomRange * spawnLawn;
         Vector3 spawnLocation = new Vector3(lane, 0, transform.position.z);
-        GameObject go = Instantiate(randomObs, spawnLocation, Quaternion.identity);
-        go.transform.localScale *= randMult;
-        go.GetComponent<ObstacleMotor>().health = randMult;
+        if(spawnLocation == lastSpawnPos)
+        {   
+            lane = (float)randomRange * spawnLawn;
+            spawnLocation = new Vector3(lane, 0, transform.position.z);
+        }
 
+        GameObject go = Instantiate(randomObs, spawnLocation, Quaternion.identity);
     }
 
     // private void SpawnNewObstacle()
