@@ -2016,7 +2016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919704800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -39.8}
+  m_LocalPosition: {x: 0, y: 0, z: -33.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2063,6 +2063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allMissiles:
   - {fileID: 7253369404060246563, guid: 2c45697cdd40b8e49bca256807c3efd3, type: 3}
+  canAttack: 1
   shipWidth: 10
 --- !u!65 &1919704805
 BoxCollider:
@@ -2090,6 +2091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracker: {fileID: 108977068}
+  threshold: 0
 --- !u!1 &1988728265
 GameObject:
   m_ObjectHideFlags: 0
