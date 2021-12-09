@@ -10,7 +10,7 @@ public class ObstacleSpawn : MonoBehaviour
     public float spawnRate = 2.0f;
     public bool isSpawning = true;
     private const float xLimit = 10f;
-    private const float laneWidth = 4f;
+    private const float laneWidth = 3f;
     public GameObject[] astroids;
 
     // PathCreator pathToUse;

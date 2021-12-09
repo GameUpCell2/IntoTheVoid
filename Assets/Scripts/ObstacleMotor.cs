@@ -12,6 +12,12 @@ public class ObstacleMotor : MonoBehaviour
     private const float maxZLimit = 29f;
     private const float minZLimit = -26f;
 
+    private void Start()
+    {
+        obstacleSpeed = Random.Range(2, 16);
+    }
+
+
     void Update()
     {
         // Move obstacle foward
