@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissileMotor : MonoBehaviour
 {
-    private float missileSpeed = 6f;
+    private float missileSpeed = 20f;
     private const float xLimit = 17f;
     private const float maxZLimit = 29f;
     private const float minZLimit = -26f;
