@@ -9,6 +9,7 @@ public class ObstacleSpawn : MonoBehaviour
     public static ObstacleSpawn Instance {set; get;}
     public float spawnRate = 0.5f;
     public bool isSpawning = true;
+
     private const float xLimit = 9f;
     private const float laneWidth = 4f;
     public GameObject[] astroids;

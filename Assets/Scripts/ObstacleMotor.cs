@@ -12,6 +12,7 @@ public class ObstacleMotor : MonoBehaviour
     private const float maxZLimit = 29f;
     private const float minZLimit = -26f;
 
+
     public int health = 3;
     public int destructScore = 2;
     private int damages = 0;
