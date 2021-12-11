@@ -8,7 +8,6 @@ public class PlayerArsenal : MonoBehaviour
     public static PlayerArsenal Instance {set; get;}
     private float fireRate = 1f;
     private bool allowFire = true;
-    public bool canAttack = true;
     
     public float shipWidth = 10f;
     // public int GameManager.Instance.GameScore = 2;
@@ -26,7 +25,7 @@ public class PlayerArsenal : MonoBehaviour
 
     public void LaunchMissile(Vector3 playerPosition)
     {   
-        if(allowFire && canAttack)
+        if(allowFire)
         {   
             MyAudioManager.Instance.Play("gun");
             Vector3 spawnPosition = playerPosition;
