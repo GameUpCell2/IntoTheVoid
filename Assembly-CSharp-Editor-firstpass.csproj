@@ -295,14 +295,8 @@
     <Reference Include="Bolt.State.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="GitHub.Logging">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="Antlr3.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Ludiq.Graphs.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Graphs.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Ludiq.Platforms">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Platforms.dll</HintPath>
@@ -310,41 +304,47 @@
     <Reference Include="GitHub.Unity.45">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll</HintPath>
     </Reference>
+    <Reference Include="Bolt.Core.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bolt.Flow.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Flow.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="MiscUtil">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\MiscUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHub.Api.45">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll</HintPath>
+    </Reference>
+    <Reference Include="Bolt.State.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHub.Logging">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Ludiq.Graphs.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Graphs.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Bolt.Flow.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Ludiq.Graphs.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Graphs.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Bolt.Core.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Core.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Bolt.Core.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="Ludiq.Core.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="sfw.net">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\sfw.net.dll</HintPath>
     </Reference>
-    <Reference Include="Bolt.Flow.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.Flow.Runtime.dll</HintPath>
+    <Reference Include="Ludiq.Core.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Ludiq.Core.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Ludiq.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="GitHub.Api.45">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll</HintPath>
-    </Reference>
-    <Reference Include="MiscUtil">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\MiscUtil.dll</HintPath>
-    </Reference>
-    <Reference Include="Bolt.State.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Ludiq\Assemblies\Bolt.State.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="GitHub.UnityShim">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll</HintPath>
@@ -709,12 +709,6 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -726,12 +720,6 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -745,38 +733,50 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>C:\GIT REPOS\IntoTheVoid\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
