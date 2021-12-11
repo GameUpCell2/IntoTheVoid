@@ -46,9 +46,6 @@ public class GameManager : MonoBehaviour
     public int NoLives{get{return noLives;}}
     public GameObject[] noLivesIndicators;
 
-    public Sprite playSprite;
-    public Sprite pauseSprite;
-
     private void Awake()
     {
         Instance = this;
