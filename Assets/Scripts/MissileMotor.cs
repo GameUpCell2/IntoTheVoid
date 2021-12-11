@@ -13,7 +13,7 @@ public class MissileMotor : MonoBehaviour
     {
         if(GameManager.Instance.GameLevel > 0)
         {
-            transform.position += Vector3.forward * missileSpeed * Time.deltaTime ;    
+            transform.position += Vector3.forward * missileSpeed * Time.deltaTime * (GameManager.Instance.GameLevel);    
         }
         else
         {
