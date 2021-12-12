@@ -6,7 +6,7 @@ public class PlayerArsenal : MonoBehaviour
 {
     public GameObject[] allMissiles;
     public static PlayerArsenal Instance {set; get;}
-    private float fireRate = 1f;
+    private float fireRate = 0.45f;
     private bool allowFire = true;
     
     public float shipWidth = 10f;
